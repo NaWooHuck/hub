@@ -17,10 +17,6 @@
 			margin-bottom: 10px;
 		}
 		
-		.header a{
-			color: black;
-			text-decoration-line: none;
-		}
 		.header #name{
 			font-size: 30px;
 		}
@@ -50,7 +46,7 @@
 </head>
 <body>
 	<div class="header">
-    <div id="name"><a href="Main.jsp">컴퓨준</a></div>
+    <div id="name">컴퓨준</div>
    	<div id="emp_name"><%= session.getAttribute("emp_name") %></div>
    	<div id="emp_pos"><%= session.getAttribute("emp_pos") %></div>
     <div id="log-out">

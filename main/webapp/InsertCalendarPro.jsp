@@ -14,8 +14,7 @@
 	<script>
 		
 		function err(){
-			alert(" 재고수량이 적습니다.");
-			// event.preventDefault();
+			alert("재고수량이 적습니다.");
 			history.back();
 		}	
 	
@@ -51,7 +50,7 @@
 			conn = db.getConnection();
 			
 			
-			try{
+			
 			if(cpu!=null){
 				
 				String sqlSelect = "SELECT * FROM COMPONENT WHERE PART_NAME =?";
@@ -60,12 +59,19 @@
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()){
-					if(rs.getInt("PART_EA")<Integer.parseInt(cpu_ea)){
-						throw new Exception("CPU 재고가 부족합니다.");
+					if(rs.getInt("PART_EA")>=Integer.parseInt(cpu_ea)){
+						String sqlUpdate = "UPDATE COMPONENT SET PART_EA= (PART_EA-?), PRODUCTION_EA = (PRODUCTION_EA+?) WHERE PART_NAME = ?";
+						pstmt = conn.prepareStatement(sqlUpdate);
+						pstmt.setString(1, cpu_ea);
+						pstmt.setString(2, cpu_ea);
+						pstmt.setString(3, cpu);
+					
+						pstmt.executeUpdate();
+					} else {
+						%><script>err();</script><% 
 					}
 				} 
 			}
-			
 			if(mb!=null){
 				
 				String sqlSelect = "SELECT * FROM COMPONENT WHERE PART_NAME =?";
@@ -74,8 +80,16 @@
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()){
-					if(rs.getInt("PART_EA")<Integer.parseInt(mb_ea)){
-						throw new Exception("MAINBOARD 재고가 부족합니다.");
+					if(rs.getInt("PART_EA")>=Integer.parseInt(mb_ea)){
+						String sqlUpdate = "UPDATE COMPONENT SET PART_EA= (PART_EA-?), PRODUCTION_EA = (PRODUCTION_EA+?)  WHERE PART_NAME = ?";
+						pstmt = conn.prepareStatement(sqlUpdate);
+						pstmt.setString(1, mb_ea);
+						pstmt.setString(2, mb_ea);
+						pstmt.setString(3, mb);
+					
+						pstmt.executeUpdate();
+					} else {
+						%><script>err();</script><% 
 					}
 				} 
 			}
@@ -86,8 +100,16 @@
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()){
-					if(rs.getInt("PART_EA")<Integer.parseInt(ram_ea)){
-						throw new Exception("RAM 재고가 부족합니다."); 
+					if(rs.getInt("PART_EA")>=Integer.parseInt(ram_ea)){
+						String sqlUpdate = "UPDATE COMPONENT SET PART_EA= (PART_EA-?), PRODUCTION_EA = (PRODUCTION_EA+?)  WHERE PART_NAME = ?";
+						pstmt = conn.prepareStatement(sqlUpdate);
+						pstmt.setString(1, ram_ea);
+						pstmt.setString(2, ram_ea);
+						pstmt.setString(3, ram);
+					
+						pstmt.executeUpdate();
+					} else {
+						%><script>err();</script><% 
 					}
 				} 
 			}
@@ -98,8 +120,16 @@
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()){
-					if(rs.getInt("PART_EA")<Integer.parseInt(gpu_ea)){
-						throw new Exception("GPU 재고가 부족합니다.");
+					if(rs.getInt("PART_EA")>=Integer.parseInt(gpu_ea)){
+						String sqlUpdate = "UPDATE COMPONENT SET PART_EA= (PART_EA-?), PRODUCTION_EA = (PRODUCTION_EA+?)  WHERE PART_NAME = ?";
+						pstmt = conn.prepareStatement(sqlUpdate);
+						pstmt.setString(1, gpu_ea);
+						pstmt.setString(2, gpu_ea);
+						pstmt.setString(3, gpu);
+					
+						pstmt.executeUpdate();
+					} else {
+						%><script>err();</script><% 
 					}
 				} 
 			}
@@ -110,8 +140,16 @@
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()){
-					if(rs.getInt("PART_EA")<Integer.parseInt(power_ea)){
-						throw new Exception("POWER 재고가 부족합니다.");
+					if(rs.getInt("PART_EA")>=Integer.parseInt(power_ea)){
+						String sqlUpdate = "UPDATE COMPONENT SET PART_EA= (PART_EA-?), PRODUCTION_EA = (PRODUCTION_EA+?)  WHERE PART_NAME = ?";
+						pstmt = conn.prepareStatement(sqlUpdate);
+						pstmt.setString(1, power_ea);
+						pstmt.setString(2, power_ea);
+						pstmt.setString(3, power);
+					
+						pstmt.executeUpdate();
+					} else {
+						%><script>err();</script><% 
 					}
 				} 
 			}
@@ -122,57 +160,7 @@
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()){
-					if(rs.getInt("PART_EA")<Integer.parseInt(cover_ea)){
-						throw new Exception("CASE 재고가 부족합니다.");
-					}
-				} 
-			}
-			if(cpu!=null){
-						String sqlUpdate = "UPDATE COMPONENT SET PART_EA= (PART_EA-?), PRODUCTION_EA = (PRODUCTION_EA+?) WHERE PART_NAME = ?";
-							pstmt = conn.prepareStatement(sqlUpdate);
-							pstmt.setString(1, cpu_ea);
-							pstmt.setString(2, cpu_ea);
-							pstmt.setString(3, cpu);
-						
-							pstmt.executeUpdate(); 
-			}
-			if(mb!=null){
-						String sqlUpdate = "UPDATE COMPONENT SET PART_EA= (PART_EA-?), PRODUCTION_EA = (PRODUCTION_EA+?)  WHERE PART_NAME = ?";
-						pstmt = conn.prepareStatement(sqlUpdate);
-						pstmt.setString(1, mb_ea);
-						pstmt.setString(2, mb_ea);
-						pstmt.setString(3, mb);
-					
-						pstmt.executeUpdate();
-			}
-			if(ram!=null){
-						String sqlUpdate = "UPDATE COMPONENT SET PART_EA= (PART_EA-?), PRODUCTION_EA = (PRODUCTION_EA+?)  WHERE PART_NAME = ?";
-						pstmt = conn.prepareStatement(sqlUpdate);
-						pstmt.setString(1, ram_ea);
-						pstmt.setString(2, ram_ea);
-						pstmt.setString(3, ram);
-					
-						pstmt.executeUpdate();
-			}
-			if(gpu!=null){
-						String sqlUpdate = "UPDATE COMPONENT SET PART_EA= (PART_EA-?), PRODUCTION_EA = (PRODUCTION_EA+?)  WHERE PART_NAME = ?";
-						pstmt = conn.prepareStatement(sqlUpdate);
-						pstmt.setString(1, gpu_ea);
-						pstmt.setString(2, gpu_ea);
-						pstmt.setString(3, gpu);
-					
-						pstmt.executeUpdate();
-			}
-			if(power!=null){
-						String sqlUpdate = "UPDATE COMPONENT SET PART_EA= (PART_EA-?), PRODUCTION_EA = (PRODUCTION_EA+?)  WHERE PART_NAME = ?";
-						pstmt = conn.prepareStatement(sqlUpdate);
-						pstmt.setString(1, power_ea);
-						pstmt.setString(2, power_ea);
-						pstmt.setString(3, power);
-					
-						pstmt.executeUpdate();
-			}
-			if(cover!=null){
+					if(rs.getInt("PART_EA")>=Integer.parseInt(cover_ea)){
 						String sqlUpdate = "UPDATE COMPONENT SET PART_EA= (PART_EA-?), PRODUCTION_EA = (PRODUCTION_EA+?)  WHERE PART_NAME = ?";
 						pstmt = conn.prepareStatement(sqlUpdate);
 						pstmt.setString(1, cover_ea);
@@ -180,6 +168,10 @@
 						pstmt.setString(3, cover);
 					
 						pstmt.executeUpdate();
+					} else {
+						%><script>err();</script><% 
+					}
+				} 
 			}
 			
 			String sqlInsert = "INSERT INTO CALENDAR (NAME,SUBJECT,CONTENT,PRODUCTION_DATE,CPU,CPU_EA,MAINBOARD,MAINBOARD_EA,RAM,RAM_EA,GPU,GPU_EA,POWER,POWER_EA,CASE,CASE_EA) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -203,14 +195,11 @@
 			pstmt.setString(16, cover_ea);
 			pstmt.executeUpdate();
 			
-			%> <script>clear();</script> <%
-			} catch (Exception e){
-				%><script>err();</script> <%
-			}
 			
 		} catch (SQLException se){
 			se.getMessage();
 		} finally {
+			%> <script>clear();</script> <%
 			if(conn!=null){conn.close();}
 			if(pstmt!=null){pstmt.close();}
 			if(rs!=null){rs.close();}

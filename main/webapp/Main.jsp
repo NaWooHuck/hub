@@ -133,10 +133,8 @@
 							while(rs.next()){
 								%>
 								<div class="date_note">
-									<a href="noteForm.jsp?date=<%=dates%>">
 									<div class="date_subject"><%=rs.getString("SUBJECT") %></div> 
 									<div class="date_content"><%=rs.getString("CONTENT") %></div>
-									</a>
 								</div>
 								<%
 								}
@@ -154,19 +152,20 @@
         %>
         
         <script>
-        $(document).ready(function(){
-					/*	let i =1;
-        	  $(".date_num:nth-child("+i+")").mouseover(function(){
-        	    	$(".date_num:nth-child("+i+") .material-symbols-outlined").removeClass("hide");
+        /*$(document).ready(function(){
 
-							console.log("확인");
+        	  $(".date_num").mouseover(function(){
+
+        	    $(".material-symbols-outlined").removeClass("hide");
+
         	  });
 
-        	  $(".collecter .date:nth-child("+i+")").mouseout(function(){
-        		  	$(".date_num:nth-child("+i+") .material-symbols-outlined").addClass("hide");
+        	  $(".date_num").mouseout(function(){
 
-        		  console.log("확인2");
+        		  $(".material-symbols-outlined").addClass("hide");
+
         	  });
+
         });*/
         
         	

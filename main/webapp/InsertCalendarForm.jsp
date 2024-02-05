@@ -172,7 +172,7 @@
   						if($("#power-name").val()=="" || $("#power-name").val()==null){
   							if($("#case-name").val()=="" || $("#case-name").val()==null){
 					  			alert("제품을 선택하세요");
-0					  			return false;
+					  			return false;
   							}
   						}
   					}
