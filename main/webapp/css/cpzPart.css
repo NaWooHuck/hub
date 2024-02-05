@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+.black-han sans-regular {
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.part-Detail .material-symbols-outlined {
+
+}
+
+
+
+
+.item-wrap {
+	display: flex;
+	justify-content: space-around;
+}
+
+.item-wrap .item-minus:hover {
+	cursor: pointer;
+	
+}
+
+.item-wrap > span {
+
+}
+
+.item-wrap .item-plus:hover {
+	cursor: pointer;
+}
+
+
+.section-container {
+	display: grid;
+	background-color: orange;
+	gap: 10px;
+}
+
+.section-container .cpz-select-part {
+	position: relative;
+	left: 750px;
+	top: 3px;
+}
+
+.section-container .section-div {
+	background-color: white;
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr 1fr;
+	gap: 2px;
+	text-align: center;
+	font-weight: 700px;
+}
+
+.section-container .part-Detail {
+	background-color: #d8d8d8;
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr 1fr;
+	gap: 2px;
+	text-align: center;
+}
+
+
+.section-container .part-Detail:nth-child(odd) {
+	background-color: #d8d8d8;
+}
+
+.section-container .part-Detail:nth-child(even) {
+	background-color: #fbeecf;
+}
+
+
+
+
