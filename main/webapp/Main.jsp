@@ -75,18 +75,18 @@
 			      </select>
 			      <select name="month" id="mon">
 			      	<option value="">선택하세요</option>
-			        <option value="1" <%=1 == Integer.parseInt(mo) ? "selected" : null %>>1월</option>
-			        <option value="2" <%=2 == Integer.parseInt(mo) ? "selected" : null %>>2월</option>
-			        <option value="3" <%=3 == Integer.parseInt(mo) ? "selected" : null %>>3월</option>
-			        <option value="4" <%=4 == Integer.parseInt(mo) ? "selected" : null %>>4월</option>
-			        <option value="5" <%=5 == Integer.parseInt(mo) ? "selected" : null %>>5월</option>
-			        <option value="6" <%=6 == Integer.parseInt(mo) ? "selected" : null %>>6월</option>
-			        <option value="7" <%=7 == Integer.parseInt(mo) ? "selected" : null %>>7월</option>
-			        <option value="8" <%=8 == Integer.parseInt(mo) ? "selected" : null %>>8월</option>
-			        <option value="9" <%=9 == Integer.parseInt(mo) ? "selected" : null %>>9월</option>
-			        <option value="10" <%=10 == Integer.parseInt(mo) ? "selected" : null %>>10월</option>
-			        <option value="11" <%=11 == Integer.parseInt(mo) ? "selected" : null %>>11월</option>
-			        <option value="12" <%=12 == Integer.parseInt(mo) ? "selected" : null %>>12월</option>
+			        <option value="1" <%=String.valueOf("1").equals(mo) ? "selected" : null %>>1월</option>
+			        <option value="2" <%=String.valueOf("2").equals(mo) ? "selected" : null %>>2월</option>
+			        <option value="3" <%=String.valueOf("3").equals(mo) ? "selected" : null %>>3월</option>
+			        <option value="4" <%=String.valueOf("4").equals(mo) ? "selected" : null %>>4월</option>
+			        <option value="5" <%=String.valueOf("5").equals(mo) ? "selected" : null %>>5월</option>
+			        <option value="6" <%=String.valueOf("6").equals(mo) ? "selected" : null %>>6월</option>
+			        <option value="7" <%=String.valueOf("7").equals(mo) ? "selected" : null %>>7월</option>
+			        <option value="8" <%=String.valueOf("8").equals(mo) ? "selected" : null %>>8월</option>
+			        <option value="9" <%=String.valueOf("9").equals(mo) ? "selected" : null %>>9월</option>
+			        <option value="10" <%=String.valueOf("10").equals(mo) ? "selected" : null %>>10월</option>
+			        <option value="11" <%=String.valueOf("11").equals(mo) ? "selected" : null %>>11월</option>
+			        <option value="12" <%=String.valueOf("12").equals(mo) ? "selected" : null %>>12월</option>
 			      </select>
 			      <input type="submit" value="검색">
 			    </form>
